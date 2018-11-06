@@ -10,6 +10,9 @@ Relation Prediction datasets are typically extracted from two types of resources
 * *Knowledge Bases*: KBs such as [FreeBase](https://developers.google.com/freebase/) contain hundreds or thousands of relation types pertaining to world-knowledge obtained autmoatically or semi-automatically from various resources on millions of entities. These relations include *born-in*, *nationality*, *is-in* (for geographical entities), *part-of* (for organizations, among others), and more.
 * *Semantic Graphs*: SGs such as [WordNet](https://wordnet.princeton.edu/) are often manually-curated resources of semantic concepts, restricted to more "linguistic" relations compared to free real-world knowledge. The most common semantic relation is *hypernym*, also known as the *is-a* relation (example: \<*cat*, *hypernym*, *feline*\>).
 
+## Reviews
+For recent reviews and overviews over popular models, refer to [Nickel, Murphy et al., 2016](https://ieeexplore.ieee.org/document/7358050) and [Nguyen, 2017](https://arxiv.org/abs/1703.08098).
+
 ## Evaluation
 
 Evaluation in Relation Prediction hinges on a list of ranked candidates given by the system to the test instance. The metrics below are derived from the location of correct candidate(s) in that list.
@@ -44,5 +47,17 @@ The test set is composed of triplets, each used to create two test instances, on
 | ConvE (v6; Dettmers et al., 2018) | 52.00 | 40.00 | 43.00 | [Convolutional 2D Knowledge Graph Embeddings](https://arxiv.org/abs/1707.01476) | [Official](https://github.com/TimDettmers/ConvE) |
 | ComplEx (Trouillon et al., 2016) | 51.00 | 41.00 | 44.00 | [Complex Embeddings for Simple Link Prediction](http://www.jmlr.org/proceedings/papers/v48/trouillon16.pdf) | [Official](https://github.com/ttrouill/complex) | 
 | DistMult (reimplementation by Dettmers et al., 2017) | 49.00 | 40.00 | 43.00 | [Convolutional 2D Knowledge Graph Embeddings](https://arxiv.org/abs/1412.6575) | [Link](https://github.com/uclmr/inferbeddings) |
+
+#### FreeBase15k-237  (FB15k-237)
+Besides WN18, [Bordes et al., 2013](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf) also introduced *FB15k*, a subset of FreeBase that includes triplets for the approximately 15,000 most popular entities of the knowledge base. Subsequently, it developed into one of the most popular benchmark datasets for the task.
+
+However, [Toutanova and Chen, 2015](http://www.aclweb.org/anthology/W15-4007) discovered similar issues as in WN18 and published a cleaner, more challenging FreeBase subset called *FB15k-237*. It is built on top of FB15k but only contains triple of 237 relations.
+
+| Model           | H@10 | H@1 | MRR | Paper / Source | Code | 
+| ------------- | :-----:| :-----:| :-----:| --- | --- | 
+| ConvE (v6; Dettmers et al., 2018) | 50.10 | 23.70 | 32.50 | [Convolutional 2D Knowledge Graph Embeddings](https://arxiv.org/abs/1707.01476) | [Official](https://github.com/TimDettmers/ConvE) |
+| DistMult (reimplementation by Dettmers et al., 2017) | 41.90 | 15.50 | 24.10 | [Convolutional 2D Knowledge Graph Embeddings](https://arxiv.org/abs/1412.6575) | [Link](https://github.com/uclmr/inferbeddings) |
+| ComplEx (Trouillon et al., 2016) | 42.80 | 15.80 | 24.70 | [Complex Embeddings for Simple Link Prediction](http://www.jmlr.org/proceedings/papers/v48/trouillon16.pdf) | [Official](https://github.com/ttrouill/complex) |
+| ConvKB (Nguyen et al., 2018) | 51.70 | - | 39.60 | [A Novel Embedding Model for Knowledge Base Completion Based on Convolutional Neural Network](http://www.aclweb.org/anthology/N18-2053) | [Official](https://github.com/daiquocnguyen/ConvKB) |
 
 [Back to README](../README.md)
